@@ -18,10 +18,10 @@ class _HomePageState extends State<HomePage> {
   int exScore = 0;
   int filledBoxes = 0;
    static var myNewFont = GoogleFonts.pressStart2P(
-      textStyle: TextStyle(color: Colors.white, letterSpacing: 3, fontSize: 25));
+      textStyle: TextStyle(color: Colors.white, letterSpacing: 3, fontSize: 20));
     
     static var myNewFontWhite = GoogleFonts.pressStart2P(
-      textStyle: TextStyle(color: Colors.white, letterSpacing: 3, fontSize: 20));
+      textStyle: TextStyle(color: Colors.white, letterSpacing: 3, fontSize: 10));
   
 
   
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                      ),
                    ),
                    Padding(
-                     padding: const EdgeInsets.only(top:50.0,left: 40.0),
+                     padding: const EdgeInsets.only(top:50.0,left: 10.0),
                      child: Column(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: <Widget>[
