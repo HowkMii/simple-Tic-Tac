@@ -27,6 +27,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool ohTurn = true; 
   List<String>  displayExOh =['','','','','','','','','',];
 
   
@@ -62,10 +63,72 @@ class _HomePageState extends State<HomePage> {
   }
   void _tapped( int index){
     setState(() {
-      displayExOh[index] = 'o';
+      if(ohTurn){
+        displayExOh[index] ='H';
+
+      }else{
+        displayExOh[index] ='K';
+      }
+      ohTurn = !ohTurn;
+      _checkWinner();
     });
 
     
   }
-  
+  Void  _checkWinner(){
+    if(displayExOh[0] == displayExOh[1] && 
+       displayExOh[0] == displayExOh[2] &&
+       displayExOh[0] !=''){
+       _showWinDialog(displayExOh[0]);
+    }
+    if(displayExOh[3] == displayExOh[4] && 
+       displayExOh[3] == displayExOh[5] &&
+       displayExOh[3] !=''){
+       _showWinDialog(displayExOh[3]);
+    }
+    if(displayExOh[6] == displayExOh[7] && 
+       displayExOh[6] == displayExOh[8] &&
+       displayExOh[6] !=''){
+       _showWinDialog(displayExOh[6]);
+    }
+    if(displayExOh[0] == displayExOh[3] && 
+       displayExOh[0] == displayExOh[6] &&
+       displayExOh[0] !=''){
+       _showWinDialog(displayExOh[0]);
+    }
+    if(displayExOh[1] == displayExOh[4] && 
+       displayExOh[1] == displayExOh[7] &&
+       displayExOh[1] !=''){
+       _showWinDialog(displayExOh[1]);
+    }
+    if(displayExOh[2] == displayExOh[5] && 
+       displayExOh[2] == displayExOh[8] &&
+       displayExOh[2] !=''){
+       _showWinDialog(displayExOh[2]);
+    }
+    if(displayExOh[6] == displayExOh[4] && 
+       displayExOh[6] == displayExOh[2] &&
+       displayExOh[6] !=''){
+       _showWinDialog(displayExOh[6]);
+    }
+    if(displayExOh[0] == displayExOh[4] && 
+       displayExOh[0] == displayExOh[8] &&
+       displayExOh[0] !=''){
+       _showWinDialog(displayExOh[0]);
+    }
+    
+    
+
+  }
+  Void _showWinDialog(String winner){
+    showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return AlertDialog(
+          title: Text('Winner is '+ winner),);
+      }
+
+    );
+
+  }
 }
