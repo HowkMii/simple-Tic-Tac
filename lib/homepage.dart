@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool ohTurn = true; 
-  List<String>  displayExOh =['','','','','','','','','',];
+  List<String>  displayExOh =['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',];
   var myTextStyle = TextStyle(color: Colors.white,fontSize: 20);
   int ohScore =0;
   int exScore = 0;
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
 
                  children: <Widget>[
                    Padding(
-                     padding: const EdgeInsets.only(top:50.0),
+                     padding: const EdgeInsets.only(top:100.0),
                      child: Column(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: <Widget>[
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                      ),
                    ),
                    Padding(
-                     padding: const EdgeInsets.only(top:50.0,left: 10.0),
+                     padding: const EdgeInsets.only(top:100.0,left: 10.0),
                      child: Column(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: <Widget>[
@@ -72,9 +72,9 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 3,
                       child: GridView.builder(
-              itemCount: 9,
+              itemCount: 36,
               gridDelegate:
-               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 6),
                 itemBuilder: (BuildContext contex,int index){
                   return GestureDetector(
                     onTap:(){_tapped(index);
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                           border: Border.all( color: Colors.grey[700])
                       ),
                       child: Center(
-                        child: Text(displayExOh[index],style: TextStyle(color: Colors.white,fontSize: 40),),),
+                        child: Text(displayExOh[index],style: TextStyle(color: Colors.white,fontSize: 20),),),
                     ),
                   );
                 }),
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
             child:Container(
               child: Center(child: Column(children: <Widget>[
                 Text('TIC TAC TOE',style: myNewFontWhite),
-                    SizedBox(height: 10,),
+                    SizedBox(height: 5,),
                  Text(' By HowkMii', style: myNewFontWhite),
               ],),),
 
@@ -115,11 +115,11 @@ class _HomePageState extends State<HomePage> {
     
     setState(() {
       if(ohTurn && displayExOh[index] ==''){
-        displayExOh[index] ='H';
+        displayExOh[index] ='X';
         filledBoxes += 1;
 
       }else if(!ohTurn && displayExOh[index] ==''){
-        displayExOh[index] ='K';
+        displayExOh[index] ='O';
         filledBoxes += 1;
       }
       ohTurn = !ohTurn;
@@ -219,17 +219,17 @@ class _HomePageState extends State<HomePage> {
       }
 
     );
-    if (winner == 'K'){
+    if (winner == 'X'){
       ohScore = ohScore +=1;
 
-    }else if(winner == 'H'){
+    }else if(winner == 'O'){
       exScore = exScore +=1;
 
     }
     }
     void _clearBoard(){
       setState(() {
-        for(int i=0; i<9;i++){
+        for(int i=0; i<36;i++){
 
         displayExOh[i]='';
       }
